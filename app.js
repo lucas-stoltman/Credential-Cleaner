@@ -6,14 +6,14 @@ const port = 8081;
 
 http.createServer(function (request, response) {
 
-    // Send the HTTP header 
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    response.writeHead(200, { 'Content-Type': 'text/plain' })
+    fs.readFile('bitwarden_export_test.csv', function(err, data){
 
-    // To be printed to the page
-    response.end('Hello World!');
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.write(data);
+        return response.end();
 
+
+    })
 }).listen(port);
 
-console.log(`Console running at http://127.0.0.1:${port}`);
+console.log(`Console running at http://127.0.0.1:${port}`); 
