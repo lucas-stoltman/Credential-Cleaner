@@ -1,4 +1,7 @@
+// Adding modules
 let http = require('http');
+let fs = require('fs'); // filesystem
+
 const port = 8081;
 
 http.createServer(function (request, response) {
