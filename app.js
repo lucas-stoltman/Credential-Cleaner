@@ -1,26 +1,15 @@
 // Adding modules
-let http = require('http');
-let fs = require('fs'); // filesystem
+const csv = require('csv-parser');
+const fs = require('fs'); // filesystem
 
-const port = 8081;
-
-http.createServer(function (request, response) {
-
-    fs.readFile('bitwarden_export_test.csv', function(err, data){
-
-        // build an array to store the data
-        // let passwords[]
-
-        response.writeHead(200, { 'Content-Type': 'text/html' });
-        response.write(data);
-        return response.end();
-
-
+fs.createReadStream('bitwarden_export_test.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+        console.log(row);
     })
-}).listen(port);
-
-console.log(`Console running at http://127.0.0.1:${port}`); 
-
+    .on('end', () => {
+        console.log('CSV file successfully processed');
+    });
 
 // TODO
 
