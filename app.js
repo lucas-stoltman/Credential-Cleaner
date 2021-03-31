@@ -9,8 +9,15 @@ fs.createReadStream('bitwarden_export_test.csv')
     .on('data', (row) => {
         data.push(row);
     })
+
+    // for (let i = 0; i < data.length; i++) {
+    //     if (data[i] == data[i+1]) {
+    //         data[i].pop();
+    //     }
+    // }
+
     .on('end', () => {
-        console.table(data);
+        console.log(data);
         console.log('CSV file successfully processed');
     });
 
