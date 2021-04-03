@@ -20,6 +20,7 @@ for (let i = 0; i < data.length; i++) {
     if (data[i] == data[i + 1]) {
         data.splice(i, 1);
     }
+    console.log(data[i]);
 }
 
 // console.log(`Slot 0: ${data[0]}`);
