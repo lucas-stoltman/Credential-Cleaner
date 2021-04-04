@@ -12,6 +12,8 @@ fs.createReadStream('bitwarden_export_test.csv')
         data.push(rowString);
     })
 
+    let newData = data;
+
 // sort the array first for faster runtime
 // if not, build new array and compare for duplicates when adding
 
