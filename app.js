@@ -11,45 +11,50 @@ fs.createReadStream('data.csv')
     .on('end', () => {
 
         // post the original
-        console.log('\nBefore\n');
+        // console.log('\nBefore\n');
         // console.table(results);
 
         // remove duplicates
         clean(results);
 
         // post the cleaned version
-        console.log('\nAfter\n');
+        // console.log('\nAfter\n');
         // console.table();
 
         // create new csv file
-        const ws = fs.createWriteStream("out.csv");
+        const ws = fs.createWriteStream("data_clean.csv");
         fastcsv
             .write(results, { headers: true })
             .pipe(ws);
 
-
     });
 
 
+// remove duplicates
 function clean(array) {
 
     let arrayCopy = [];
+    let duplicate = false;
 
     // iterate through original array
     for (i = 0; i < array.length; i++) {
 
-        let numDuplicates = 0;
-
-        // compare current value with every value in the copy
-        for (i = 0; i < array.length; i++) {
-            if (array[i] == arrayCopy[i]) {
-                arrayCopy.slice()
+        // check for duplicate
+        for (j = 0; j < arrayCopy.length; j++) {
+            if (arrayCopy[j] == array[i]) {
+                duplicate == true;
+                break;
+            }
+            else {
+                duplicate = false;
             }
         }
+
+        if (!duplicate) {
+            arrayCopy.push(array[i]);
+            console.table(arrayCopy);
+        }
     }
-
-    console.table(arrayCopy);
-
 }
 
 
