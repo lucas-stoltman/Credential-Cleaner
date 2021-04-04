@@ -1,35 +1,20 @@
 // Adding modules
 const csv = require('csv-parser');
 const fs = require('fs'); // filesystem
+const results = [];
 
-let data = [];
-let rowString;
-
-fs.createReadStream('bitwarden_export_test.csv')
+fs.createReadStream('data.csv')
     .pipe(csv())
-    .on('data', (row) => {
-        console.log(row); 
-        data.push(rowString);
-    })
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+        console.log('\nBefore\n');
+        console.table(results);
 
-    let newData = data;
+    });
 
-// sort the array first for faster runtime
-// if not, build new array and compare for duplicates when adding
+function clean(results) {
 
-
-for (let i = 0; i < data.length; i++) {
-    if (data[i] == data[i + 1]) {
-        data.splice(i, 1);
-    }
-    console.log(data[i]);
 }
-
-// console.log(`Slot 0: ${data[0]}`);
-// console.log(`Slot 1: ${data[1]}`);
-// console.log(data[0] > data[1]);
-// console.log('CSV file successfully processed');
-// TODO
 
 /*
 
