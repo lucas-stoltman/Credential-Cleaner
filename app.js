@@ -17,6 +17,10 @@ fs.createReadStream('data.csv')
         // remove duplicates
         clean(results);
 
+        for (i = 0; i < results.length; i++) {
+            console.table(results[i]);
+        }
+
         // post the cleaned version
         // console.log('\nAfter\n');
         // console.table();
@@ -33,28 +37,32 @@ fs.createReadStream('data.csv')
 // remove duplicates
 function clean(array) {
 
-    let arrayCopy = [];
+    let arrayCopy = [array[0]];
     let duplicate = false;
 
     // iterate through original array
-    for (i = 0; i < array.length; i++) {
+    for (i = 1; i < array.length; i++) {
 
-        // check for duplicate
-        for (j = 0; j < arrayCopy.length; j++) {
-            if (arrayCopy[j] == array[i]) {
-                duplicate == true;
-                break;
-            }
-            else {
-                duplicate = false;
-            }
+        //   if in copy already, skip
+        if (search(array[i], arrayCopy)) {
+            break;
         }
-
-        if (!duplicate) {
+        else {
             arrayCopy.push(array[i]);
-            console.table(arrayCopy);
         }
     }
+
+    results = arrayCopy;
+}
+
+function search(item, array) {
+    for (i = 0; i < array.length; i++) {
+        if (item == array[i]) {
+            return true;
+            break;
+        }
+    }
+    return false;
 }
 
 
@@ -62,8 +70,6 @@ function clean(array) {
 /*
 
 * make a new array clean of duplicates
-
-* create a new csv file of the new array
 
 
 
