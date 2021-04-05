@@ -1,7 +1,10 @@
+// Developed by Lucas Stoltman 2021
+
 // Adding modules
-const csv = require('csv-parser');
-const fastcsv = require('fast-csv');
+const csv = require('csv-parser'); // csv reader
+const fastcsv = require('fast-csv'); // csv writer
 const fs = require('fs'); // filesystem
+const _ = require('lodash'); // JavaScript utility library, https://lodash.com/
 let results = [];
 
 
@@ -17,9 +20,7 @@ fs.createReadStream('data.csv')
         // remove duplicates
         clean(results);
 
-        for (i = 0; i < results.length; i++) {
-            console.table(results[i]);
-        }
+
 
         // post the cleaned version
         // console.log('\nAfter\n');
@@ -57,9 +58,11 @@ function clean(array) {
 
 function search(item, array) {
     for (i = 0; i < array.length; i++) {
-        if (item == array[i]) {
+
+        // if item is found in array        
+        if (_.isEqual(item, array[i])) {
+            console.log(`${_.values(item)} duplicate found`);
             return true;
-            break;
         }
     }
     return false;
