@@ -13,18 +13,8 @@ fs.createReadStream('data.csv')
     .on('data', (data) => results.push(data))
     .on('end', () => {
 
-        // post the original
-        // console.log('\nBefore\n');
-        // console.table(results);
-
         // remove duplicates
         clean(results);
-
-
-
-        // post the cleaned version
-        // console.log('\nAfter\n');
-        // console.table();
 
         // create new csv file
         const ws = fs.createWriteStream("data_clean.csv");
@@ -66,8 +56,6 @@ function duplicate(item, array) {
 
 // TODO List
 /*
-
-* make a new array clean of duplicates
 
 * Add modular use of lodash rather than the entire package
 
