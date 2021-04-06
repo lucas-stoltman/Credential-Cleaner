@@ -39,16 +39,12 @@ fs.createReadStream('data.csv')
 function clean(array) {
 
     let arrayCopy = [array[0]];
-    let duplicate = false;
 
     // iterate through original array
-    for (i = 1; i < array.length; i++) {
+    for (let i = 1; i < array.length; i++) {
 
-        //   if in copy already, skip
-        if (search(array[i], arrayCopy)) {
-            break;
-        }
-        else {
+        // if not in copy already, add
+        if (!(duplicate(array[i], arrayCopy))) {
             arrayCopy.push(array[i]);
         }
     }
@@ -56,9 +52,8 @@ function clean(array) {
     results = arrayCopy;
 }
 
-function search(item, array) {
-    for (i = 0; i < array.length; i++) {
-
+function duplicate(item, array) {
+    for (let i = 0; i < array.length; i++) {
         // if item is found in array        
         if (_.isEqual(item, array[i])) {
             console.log(`${_.values(item)} duplicate found`);
@@ -73,6 +68,8 @@ function search(item, array) {
 /*
 
 * make a new array clean of duplicates
+
+* Add modular use of lodash rather than the entire package
 
 
 
