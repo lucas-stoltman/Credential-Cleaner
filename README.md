@@ -1,4 +1,4 @@
-# Password-Polisher
+# Credential-Cleaner
 A node app that will comb through a csv password file and remove duplicates. To be used in tandem with a password manager.
 
 Just rename the desired csv file to "data.csv" and place within the same folder as app.js
