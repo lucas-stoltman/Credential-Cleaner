@@ -14,7 +14,7 @@ fs.createReadStream('data.csv')
     .on('end', () => {
 
         // remove duplicates
-        clean(results);
+        removeDuplicates(results);
 
         // create new csv file
         const ws = fs.createWriteStream("data_clean.csv");
@@ -26,7 +26,7 @@ fs.createReadStream('data.csv')
 
 
 // remove duplicates
-function clean(array) {
+function removeDuplicates(array) {
 
     let arrayCopy = [array[0]];
 
