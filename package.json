@@ -1,0 +1,20 @@
+{
+  "name": "Credential-Cleaner",
+  "version": "1.0.0",
+  "description": "A node app that will comb through a csv password file and remove duplicates.  To be used in tandem with a password manager.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RainyKnight/Credential-Cleaner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RainyKnight/Credential-Cleaner/issues"
+  },
+  "homepage": "https://github.com/RainyKnight/Credential-Cleaner#readme"
+}
