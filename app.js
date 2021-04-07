@@ -34,7 +34,7 @@ function clean(array) {
     for (let i = 1; i < array.length; i++) {
 
         // if not in copy already, add
-        if (!(duplicate(array[i], arrayCopy))) {
+        if (!(isDuplicate(array[i], arrayCopy))) {
             arrayCopy.push(array[i]);
         }
     }
@@ -42,7 +42,7 @@ function clean(array) {
     results = arrayCopy;
 }
 
-function duplicate(item, array) {
+function isDuplicate(item, array) {
     for (let i = 0; i < array.length; i++) {
         // if item is found in array        
         if (_.isEqual(item, array[i])) {
