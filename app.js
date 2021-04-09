@@ -5,23 +5,23 @@ const csv = require('csv-parser'); // csv reader
 const fastcsv = require('fast-csv'); // csv writer
 const fs = require('fs'); // filesystem
 const _ = require('lodash'); // JavaScript utility library, https://lodash.com/
-let results = [];
+let inputResults = [];
 
 
+// read current csv file
 fs.createReadStream('data.csv')
     .pipe(csv())
-    .on('data', (data) => results.push(data))
+    .on('data', (data) => inputResults.push(data))
     .on('end', () => {
 
         // remove duplicates
-        removeDuplicates(results);
+        let outputResults = removeDuplicates(inputResults);
 
         // create new csv file
         const ws = fs.createWriteStream("data_clean.csv");
         fastcsv
-            .write(results, { headers: true })
+            .write(outputResults, { headers: true })
             .pipe(ws);
-
     });
 
 
