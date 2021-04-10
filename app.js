@@ -28,10 +28,10 @@ fs.createReadStream('data.csv')
 // remove duplicates
 function removeDuplicates(array) {
 
-    let arrayCopy = [array[0]];
+    let arrayCopy = [];
 
     // iterate through original array
-    for (let i = 1; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
 
         // if not in copy already, add
         if (!(isDuplicate(array[i], arrayCopy))) {
