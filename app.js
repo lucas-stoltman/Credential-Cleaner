@@ -6,6 +6,7 @@ const fastcsv = require('fast-csv'); // csv writer
 const fs = require('fs'); // filesystem
 const _ = require('lodash'); // JavaScript utility library, https://lodash.com/
 let inputResults = [];
+let numDuplicates = 0;
 
 
 // read current csv file
@@ -17,11 +18,16 @@ fs.createReadStream('data.csv')
         // remove duplicates
         let outputResults = removeDuplicates(inputResults);
 
+        // report duplicates detected
+        console.log(`${numDuplicates} duplicates found and removed.`);
+
+
         // create new csv file
         const ws = fs.createWriteStream("data_clean.csv");
         fastcsv
             .write(outputResults, { headers: true })
             .pipe(ws);
+        console.log('\nYour new file is called "data_clean.csv"\n');
     });
 
 
@@ -46,7 +52,7 @@ function isDuplicate(item, array) {
     for (let i = 0; i < array.length; i++) {
         // if item is found in array, return true       
         if (_.isEqual(item, array[i])) {
-            console.log(`${_.values(item)} duplicate found`);
+            numDuplicates++;
             return true;
         }
     }
