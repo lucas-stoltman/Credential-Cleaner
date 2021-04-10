@@ -12,8 +12,8 @@
     "url": "git+https://github.com/RainyKnight/Credential-Cleaner.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Lucas Stoltman",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/RainyKnight/Credential-Cleaner/issues"
   },
