@@ -12,8 +12,10 @@ let numDuplicates = 0;
 // read current csv file
 fs.createReadStream('data.csv')
     .pipe(csv())
+
     .on('data', (data) => inputResults.push(data))
     .on('end', () => {
+        console.time('Runtime');
 
         // remove duplicates
         let outputResults = removeDuplicates(inputResults);
@@ -28,6 +30,7 @@ fs.createReadStream('data.csv')
             .write(outputResults, { headers: true })
             .pipe(ws);
         console.log('\nYour new file is called "data_clean.csv"\n');
+        console.timeEnd('Runtime');
     });
 
 
