@@ -33,18 +33,18 @@ function removeDuplicates(array) {
     // iterate through original array
     for (let i = 0; i < array.length; i++) {
 
-        // if not in copy already, add
+        // if not in array copy already, add
         if (!(isDuplicate(array[i], arrayCopy))) {
             arrayCopy.push(array[i]);
         }
     }
 
-    results = arrayCopy;
+    return arrayCopy;
 }
 
 function isDuplicate(item, array) {
     for (let i = 0; i < array.length; i++) {
-        // if item is found in array        
+        // if item is found in array, return true       
         if (_.isEqual(item, array[i])) {
             console.log(`${_.values(item)} duplicate found`);
             return true;
