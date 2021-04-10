@@ -15,7 +15,7 @@ Rename the desired csv file to "data.csv" and place within the same folder as ap
 
 Run the app from the relevant directory with:
 ```
-$ node app.js
+$ npm start
 ```
 If it works correctly, it will spit out a new file called "data_clean.csv" within the same folder that you can import to your desired password manager. :)
 
