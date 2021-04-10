@@ -4,6 +4,7 @@
   "description": "A node app that will comb through a csv password file and remove duplicates.  To be used in tandem with a password manager.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
