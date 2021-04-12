@@ -68,4 +68,6 @@ function isDuplicate(item, array) {
 
 * Add modular use of lodash rather than the entire package
 
+* Add a GUI
+
 */
