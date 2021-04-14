@@ -67,6 +67,7 @@ function isDuplicate(item, array) {
 /*
 
 * Add modular use of lodash rather than the entire package
+    - Address issue breaking isEqual()
 
 * Add a GUI, thinking of using Electron https://www.electronjs.org/
 
