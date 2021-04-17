@@ -1,9 +1,7 @@
 {
     "cSpell.ignoreWords": [
-        "bitwarden",
         "export",
         "login",
-        "sonyentertainmentnetwork",
         "test",
         "totp"
     ]
