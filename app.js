@@ -71,6 +71,6 @@ function isDuplicate(item, array) {
 
 * add a way to differentiate between "http" and "https"
 
-* Compile into an executable
+* Compile into an executable to ease client use
 
 */
